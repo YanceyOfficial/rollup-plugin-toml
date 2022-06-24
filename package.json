@@ -1,0 +1,38 @@
+{
+	"name": "rollup-plugin-toml",
+	"description": "Convert .toml files to ES6 modules",
+	"publishConfig": {
+		"access": "public"
+	},
+	"version": "1.0.0",
+	"main": "dist/index.js",
+	"module": "dist/index.es.js",
+	"scripts": {
+		"build": "rollup -c",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/YanceyOfficial/rollup-plugin-toml.git"
+	},
+	"keywords": [
+		"rollup",
+		"plugin",
+		"toml"
+	],
+	"author": "Yancey Leo",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/YanceyOfficial/rollup-plugin-toml/issues"
+	},
+	"homepage": "https://github.com/YanceyOfficial/rollup-plugin-toml#readme",
+	"dependencies": {
+		"@rollup/plugin-typescript": "^8.3.3",
+		"@rollup/pluginutils": "^4.2.1",
+		"toml": "^3.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "^18.0.0",
+		"rollup": "^2.75.7"
+	}
+}

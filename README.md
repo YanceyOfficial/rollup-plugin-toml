@@ -1,2 +1,3 @@
 # rollup-plugin-toml
-A rollup plugin for converting toml to ESM.
+
+Convert .toml files to ES6 modules.
