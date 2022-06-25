@@ -1,12 +1,12 @@
 import typescript from '@rollup/plugin-typescript'
-const pkg = require('./package.json')
+import pkg from './package.json'
 
 /** @type {import('rollup').RollupOptions} */
 const config = {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   output: [
-    { file: pkg.main, format: 'cjs', sourcemap: true, exports: 'auto' },
-    { file: pkg.module, format: 'es', sourcemap: true },
+    { file: pkg.main, format: 'cjs', sourcemap: false, exports: 'auto' },
+    { file: pkg.module, format: 'es', sourcemap: false },
   ],
   plugins: [
     /**
@@ -14,6 +14,7 @@ const config = {
      */
     typescript({
       outputToFilesystem: true,
+      sourceMap: false,
       tsconfig: './tsconfig.json',
     }),
   ],

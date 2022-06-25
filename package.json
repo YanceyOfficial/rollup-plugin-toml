@@ -1,38 +1,44 @@
 {
-	"name": "rollup-plugin-toml",
-	"description": "Convert .toml files to ES6 modules",
-	"publishConfig": {
-		"access": "public"
-	},
-	"version": "1.0.0",
-	"main": "dist/index.js",
-	"module": "dist/index.es.js",
-	"scripts": {
-		"build": "rollup -c",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/YanceyOfficial/rollup-plugin-toml.git"
-	},
-	"keywords": [
-		"rollup",
-		"plugin",
-		"toml"
-	],
-	"author": "Yancey Leo",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/YanceyOfficial/rollup-plugin-toml/issues"
-	},
-	"homepage": "https://github.com/YanceyOfficial/rollup-plugin-toml#readme",
-	"dependencies": {
-		"@rollup/plugin-typescript": "^8.3.3",
-		"@rollup/pluginutils": "^4.2.1",
-		"toml": "^3.0.0"
-	},
-	"devDependencies": {
-		"@types/node": "^18.0.0",
-		"rollup": "^2.75.7"
-	}
+  "name": "@yancey-inc/rollup-plugin-toml",
+  "description": "Convert .toml files to ES6 modules",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "scripts": {
+    "clear": "rimraf dist",
+    "build": "pnpm run clear && rollup -c",
+    "test": "node_modules/.bin/ava __tests__/index.spec.js -v --no-worker-threads"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YanceyOfficial/rollup-plugin-toml.git"
+  },
+  "keywords": [
+    "rollup-plugin",
+    "toml"
+  ],
+  "author": "Yancey Leo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YanceyOfficial/rollup-plugin-toml/issues"
+  },
+  "homepage": "https://github.com/YanceyOfficial/rollup-plugin-toml#readme",
+  "types": "types/index.d.ts",
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "@rollup/plugin-typescript": "^8.3.3",
+    "@rollup/pluginutils": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "ava": "^4.3.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.75.7",
+    "tmp": "^0.2.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  }
 }

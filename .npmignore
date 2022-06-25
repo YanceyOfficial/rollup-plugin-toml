@@ -1,0 +1,10 @@
+__tests__
+.rollup.cache
+src
+.gitignore
+.npmrc
+.prettierrc.json
+rollup.config.js
+tsconfig.json
+tsconfig.tsbuildinfo
+pnpm-lock.yaml

@@ -1,20 +1,41 @@
-import { createFilter, dataToEsm } from '@rollup/pluginutils';
-import { parse } from 'toml'
+import type { Plugin } from 'rollup'
+import type { FilterPattern } from '@rollup/pluginutils'
+import { createFilter, dataToEsm } from '@rollup/pluginutils'
+import { parse } from '@iarna/toml'
 
-export default function toml() {
+export interface Options {
+  include?: FilterPattern
+  exclude?: FilterPattern
+}
+
+export default function toml(options: Options = {}): Plugin {
+  const ext = /\.toml$/
+  const filter = createFilter(options.include, options.exclude)
+
   return {
-    name: 'toml', // this name will show up in warnings and errors
-    resolveId(source: string) {
-      if (source === 'virtual-module') {
-        return source; // this signals that rollup should not ask other plugins or check the file system to find this id
+    name: 'toml',
+    transform(code, id) {
+      if (!ext.test(id) || !filter(id)) return null
+
+      try {
+        const parsed = parse(code)
+
+        return {
+          code: dataToEsm(parsed, {
+            preferConst: true,
+            namedExports: false,
+            objectShorthand: true,
+          }),
+          map: { mappings: '' },
+        }
+      } catch (err) {
+        const message = 'Could not parse TOML file'
+        // @ts-ignore
+        const position = parseInt(/[\d]/.exec(err.message)[0], 10)
+        // @ts-ignore
+        this.error({ message, id, position })
+        return null
       }
-      return null; // other ids should be handled as usually
     },
-    load(id: string) {
-      if (id === 'virtual-module') {
-        return 'export default "This is virtual!"'; // the source code for "virtual-module"
-      }
-      return null; // other ids should be handled as usually
-    }
-  };
+  }
 }
