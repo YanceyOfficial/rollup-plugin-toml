@@ -36,7 +36,7 @@ export default {
     dir: 'output',
     format: 'cjs',
   },
-  plugins: [js()],
+  plugins: [toml()],
 }
 ```
 
