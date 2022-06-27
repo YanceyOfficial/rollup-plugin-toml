@@ -1,0 +1,14 @@
+key = "value"
+bare_key = "value"
+bare-key = "value"
+1234 = "value"
+
+"127.0.0.1" = "value"
+"character encoding" = "value"
+"ʎǝʞ" = "value"
+
+physical.color = "orange"
+physical.shape = "round"
+site."google.com" = true
+
+"" = "blank"

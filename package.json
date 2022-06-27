@@ -10,7 +10,7 @@
   "scripts": {
     "clear": "rimraf dist",
     "build": "pnpm run clear && rollup -c",
-    "test": "node_modules/.bin/ava __tests__/index.spec.js -v --no-worker-threads"
+    "test": "node_modules/.bin/ava __tests__/index.spec.js -v --no-worker-threads --update-snapshots"
   },
   "repository": {
     "type": "git",

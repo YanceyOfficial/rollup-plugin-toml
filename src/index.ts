@@ -29,12 +29,12 @@ export default function toml(options: Options = {}): Plugin {
           map: { mappings: '' },
         }
       } catch (err) {
-        const message = 'Could not parse TOML file'
-        // @ts-ignore
-        const position = parseInt(/[\d]/.exec(err.message)[0], 10)
-        // @ts-ignore
-        this.error({ message, id, position })
-        return null
+        const { message, col: column, line } = err
+        const loc = {
+          column,
+          line
+        }
+        this.error({ message, id, loc })
       }
     },
   }
