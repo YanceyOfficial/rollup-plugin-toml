@@ -11,7 +11,6 @@
 - Update meaningful error.
 - Add tests.
 
-
 ## v1.0.1
 
 ---
@@ -21,7 +20,6 @@
 ### Chore
 
 - Update readme.
-
 
 ## v1.0.0
 
