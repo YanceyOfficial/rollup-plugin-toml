@@ -8,7 +8,7 @@
 
 ### Features
 
-- Update readme.
+- Update meaningful error.
 - Add tests.
 
 
