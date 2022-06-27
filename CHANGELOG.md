@@ -1,5 +1,17 @@
 # @yancey-inc/rollup-plugin-toml ChangeLog
 
+## v1.1.0
+
+---
+
+2022-06-27
+
+### Features
+
+- Update readme.
+- Add tests.
+
+
 ## v1.0.1
 
 ---
